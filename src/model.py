@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 import cv2
 import numpy as np
@@ -27,11 +27,10 @@ for i in range(0, len(subfolders)):
         for img in os.listdir(category_folder):
             img_path = os.path.join(category_folder, img)
             image = cv2.imread(img_path)
-            proccesd_image = preprocess_img(image)
+            proccesd_image = preprocess_img(image, -1)
             imgs.append(proccesd_image)
             labels.append(cat)
-
-        print(f"Finished Folder {category_folder}")
+        # print(f"Finished Folder {category_folder}")
 
 class_names = sorted(set(labels))
 class_to_index = {name: idx for idx, name in enumerate(class_names)}
